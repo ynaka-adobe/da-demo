@@ -15,8 +15,10 @@ async function removeSchedule(a, e) {
 
 async function loadLocalizedEvent(event) {
   const url = new URL(event.fragment);
-  const localized = localizeUrl({ config, url });
-  const path = localized?.pathname || url.pathname;
+  const isCrossOrigin = url.origin !== window.location.origin;
+  const path = isCrossOrigin
+    ? url.href
+    : (localizeUrl({ config, url })?.pathname || url.pathname);
 
   try {
     const fragment = await loadFragment(path);
