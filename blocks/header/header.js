@@ -137,10 +137,22 @@ function decorateNavItem(li) {
   });
 }
 
+const LOGO_URL = 'https://main--da-demo--ynaka-adobe.aem.live/media/media_1cd8fbaa7e2f74ba4d7d2b6305016d11c1666805f.png';
+
 function decorateBrandSection(section) {
   section.classList.add('brand-section');
   const brandLink = section.querySelector('a');
-  const [, text] = brandLink.childNodes;
+  const [firstChild, text] = brandLink.childNodes;
+
+  const img = document.createElement('img');
+  img.src = LOGO_URL;
+  img.alt = 'Logo';
+  if (firstChild && firstChild.nodeType === Node.ELEMENT_NODE) {
+    brandLink.replaceChild(img, firstChild);
+  } else {
+    brandLink.prepend(img);
+  }
+
   const span = document.createElement('span');
   span.className = 'brand-text';
   span.append(text);

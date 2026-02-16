@@ -11,7 +11,8 @@ header {
   z-index: 1000;
   overflow: hidden;
   max-height: var(--header-height);
-  background-color: light-dark(var(--color-light), var(--color-dark));
+  background-color: #000;
+  color: #fff;
 
   ul {
     margin: 0;
@@ -26,6 +27,7 @@ header {
 
   a {
     text-decoration: none;
+    color: inherit;
   }
 
   .btn {
@@ -45,19 +47,21 @@ header {
     position: relative;
     height: 100%;
 
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      padding: 0;
-      background-color: transparent;
-      height: 100%;
-      width: 64px;
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        height: 100%;
+        width: 64px;
+        color: #fff;
 
       .icon {
         width: 24px;
         height: 24px;
+        fill: currentColor;
       }
 
       .text {
@@ -136,7 +140,7 @@ header {
         font-weight: 700;
         text-decoration: none;
         margin: 0;
-        color: var(--color-brand);
+        color: #fff;
 
         img {
           height: var(--logo-height);
@@ -174,7 +178,7 @@ header {
     }
 
     > .block-content {
-      border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .action-wrapper {
@@ -201,7 +205,7 @@ header {
     }
 
     .main-nav-item {
-      border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
       > * {
         max-width: var(--grid-container-width);
@@ -209,9 +213,11 @@ header {
       }
     }
 
-    .main-nav-link {
+    .main-nav-link,
+    a.main-nav-link {
       display: block;
       line-height: 64px;
+      color: #fff !important;
     }
 
     .menu,
@@ -221,7 +227,7 @@ header {
 
     .is-open {
       .main-nav-link {
-        border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .menu,
@@ -242,7 +248,7 @@ header {
     }
 
     .brand-section {
-      border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
   }
 }

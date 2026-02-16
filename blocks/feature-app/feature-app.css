@@ -1,0 +1,135 @@
+/**
+ * Feature App - Audi-style lease offer / promotional feature.
+ * Based on https://www.audiusa.com/en/ feature-app
+ */
+.feature-app {
+  --feature-app-min-height: 420px;
+  --feature-app-overlay: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 75%) 0%,
+    rgb(0 0 0 / 45%) 50%,
+    rgb(0 0 0 / 20%) 100%
+  );
+
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  min-height: var(--feature-app-min-height);
+  overflow: hidden;
+  color: #fff;
+}
+
+.feature-app-background {
+  position: absolute;
+  inset: 0;
+}
+
+.feature-app-background picture {
+  position: absolute;
+  inset: 0;
+}
+
+.feature-app-background img {
+  display: block;
+  object-fit: cover;
+  object-position: 50% 30%;
+  width: 100%;
+  height: 100%;
+}
+
+.feature-app-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--feature-app-overlay);
+  pointer-events: none;
+}
+
+.feature-app-foreground {
+  position: relative;
+  min-height: var(--feature-app-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--spacing-xl) calc((100% - var(--grid-container-width)) / 2);
+  padding-bottom: var(--spacing-xxl);
+  box-sizing: border-box;
+}
+
+.feature-app-heading {
+  margin: 0 0 var(--spacing-m) 0;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.feature-app-detail {
+  margin: 0 0 var(--spacing-l) 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 90%);
+  max-width: 480px;
+}
+
+.feature-app-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+
+.feature-app-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.feature-app-cta.primary {
+  background-color: #e5e5e5;
+  color: #111;
+  border: 1px solid #e5e5e5;
+}
+
+.feature-app-cta.primary:hover {
+  background-color: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+.feature-app-cta.secondary {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 60%);
+}
+
+.feature-app-cta.secondary:hover {
+  background-color: rgb(255 255 255 / 10%);
+  border-color: #fff;
+}
+
+@media (width >= 600px) {
+  .feature-app {
+    --feature-app-min-height: 480px;
+  }
+
+  .feature-app-foreground {
+    padding-left: 8.3%;
+    padding-right: 8.3%;
+  }
+}
+
+@media (width >= 900px) {
+  .feature-app {
+    --feature-app-min-height: 560px;
+  }
+}
